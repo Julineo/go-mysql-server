@@ -14,18 +14,18 @@ type memSpan struct {
 	opName string
 }
 
-// StartSpan implements opentracing.Tracer interface.
+// StartSpan implements opentracing. Tracer interface.
 func (t *MemTracer) StartSpan(operationName string, opts ...opentracing.StartSpanOption) opentracing.Span {
 	t.Spans = append(t.Spans, operationName)
 	return &memSpan{operationName}
 }
 
-// Inject implements opentracing.Tracer interface.
+// Inject implements opentracing. Tracer interface.
 func (t *MemTracer) Inject(sm opentracing.SpanContext, format interface{}, carrier interface{}) error {
 	panic("not implemented")
 }
 
-// Extract implements opentracing.Tracer interface.
+// Extract implements opentracing. Tracer interface.
 func (t *MemTracer) Extract(format interface{}, carrier interface{}) (opentracing.SpanContext, error) {
 	panic("not implemented")
 }
